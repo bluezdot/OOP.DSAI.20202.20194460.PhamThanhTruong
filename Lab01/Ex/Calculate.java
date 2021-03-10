@@ -1,3 +1,4 @@
+package Ex;
 
 public class Calculate {
 
