@@ -1,4 +1,4 @@
-package Ex;
+package OtherEx;
 import javax.swing.JOptionPane;
 
 public class FirstDialog {
