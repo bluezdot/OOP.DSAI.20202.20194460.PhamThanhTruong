@@ -1,0 +1,7 @@
+If you create a constructor method to build a DVD by title then create a constructor method to build 
+a DVD by category. Does JAVA allow you to do this?
+
+Ans: - This is not a valid method overloading example. This will throw compilation error.
+     - 2 constructor method above both have argument type of String. So when we create a DVD like
+DigitalVideoDisc("Aladin"), this is an ambiguity that the system cannot know "Aladin" is title or 
+category => It raises an error.
