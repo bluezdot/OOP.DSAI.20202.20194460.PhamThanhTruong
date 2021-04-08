@@ -21,5 +21,14 @@ public class Aims {
 		// Print total cost of the items in the cart
 		System.out.println("Total Cost is: ");
 		System.out.println(anOrder.totalCost());
+		anOrder.display();
+		System.out.println("----------");
+		
+		// Add list of 2 dvds
+		DigitalVideoDisc dvd5 = new DigitalVideoDisc("title5", "type5", "name5", 80, 24.90f);
+		DigitalVideoDisc dvd6 = new DigitalVideoDisc("title6", "type6", "name6", 80, 24.90f);
+		DigitalVideoDisc dvd7 = new DigitalVideoDisc("title7", "type7", "name7", 80, 24.90f);
+		anOrder.addDigitalVideoDisc(dvd5, dvd6, dvd7);
+		anOrder.display();
 	}
 }
