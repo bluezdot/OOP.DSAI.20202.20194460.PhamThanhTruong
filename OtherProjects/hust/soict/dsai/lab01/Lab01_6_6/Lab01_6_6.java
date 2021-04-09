@@ -1,3 +1,4 @@
+package hust.soict.dsai.lab01.Lab01_6_6;
 import java.util.Scanner;
 
 public class Lab01_6_6 {

@@ -1,4 +1,4 @@
-package OtherEx;
+package hust.soict.dsai.lab01.OtherEx;
 import javax.swing.JOptionPane;
 
 public class HelloNameDialog {

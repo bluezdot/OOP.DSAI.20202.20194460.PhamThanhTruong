@@ -1,4 +1,4 @@
-package OtherEx;
+package hust.soict.dsai.lab01.OtherEx;
 public class HelloWorld {
 
 	public static void main(String[] args) {
