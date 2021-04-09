@@ -22,7 +22,8 @@ public class CartTest {
 		System.out.println("Search by title: ");
 		cart.search("War");
 		System.out.println("Search by id: ");
-		cart.search(2);
+		cart.search(1);
+		cart.search(5);
 	}
 
 }
