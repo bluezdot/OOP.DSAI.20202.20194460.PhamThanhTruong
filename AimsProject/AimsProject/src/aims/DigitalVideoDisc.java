@@ -79,6 +79,15 @@ public class DigitalVideoDisc {
 		return this.title.contains(title);
 	}
 
+	public boolean search(int id) {
+		if (id == this.id) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	public int getId() {
 		return id;
 	}
