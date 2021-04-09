@@ -1,4 +1,6 @@
-package aims;
+package hust.soict.dsai.aims.cart;
+
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class Cart {
 
@@ -6,7 +8,7 @@ public class Cart {
 	private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
 	int qtyOrdered = 0;
 
-	void addDigitalVideoDisc(DigitalVideoDisc disc) {
+	public void addDigitalVideoDisc(DigitalVideoDisc disc) {
 		if (qtyOrdered == 20) {
 			System.out.println("The cart is almost full");
 		} else {
@@ -35,7 +37,7 @@ public class Cart {
 //	}
 
 	// Method to add an arbitrary number of arguments for dvds (Varargs)
-	void addDigitalVideoDisc(DigitalVideoDisc... dvdList) {
+	public void addDigitalVideoDisc(DigitalVideoDisc... dvdList) {
 		for (int i = 0; i < dvdList.length; i++) {
 			if (qtyOrdered == 20) {
 				System.out.println("The cart is almost full");
@@ -57,7 +59,7 @@ public class Cart {
 	// In this case, I prefer you Varargs, because the input of method is only DVDs
 	// or list of DVDs (1 argument type)
 
-	void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
 		if (qtyOrdered == 19) {
 			System.out.println("The cart does not have enough space for adding list of dvds");
 		} else {
@@ -68,7 +70,7 @@ public class Cart {
 		}
 	}
 
-	void removeDigitalVideoDisc(DigitalVideoDisc disc) {
+	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
 		int j = 0;
 		for (int i = 0; i < qtyOrdered; i++) {
 			if (itemsOrdered[i] == disc) {
@@ -96,13 +98,13 @@ public class Cart {
 		return itemsOrdered;
 	}
 
-	void display() {
+	public void display() {
 		for (int i = 0; i < qtyOrdered; i++) {
 			System.out.println(itemsOrdered[i].getTitle());
 		}
 	}
 	
-	void print() {
+	public void print() {
 		System.out.println("***********************CART***********************");
 		System.out.println("Ordered Items:");
 		for (int j = 0; j < MAX_NUMBERS_ORDERED; j++) {
