@@ -101,4 +101,8 @@ public class Cart {
 			System.out.println(itemsOrdered[i].getTitle());
 		}
 	}
+	
+	public void getDetail() {
+		
+	}
 }
