@@ -69,4 +69,17 @@ public class DigitalVideoDisc {
 	public float getCost() {
 		return cost;
 	}
+
+	// The getDetail() method does not have return type, it will print out the String I construct whenever the method is called.
+	public void getDetail() {
+		System.out.printf("DVD - %s - %s - %s - %d: %f$\n", title, category, director, length, cost);
+	}
+	
+	public boolean search(String title) {
+		return this.title.contains(title);
+	}
+
+	public int getId() {
+		return id;
+	}
 }

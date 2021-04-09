@@ -102,7 +102,53 @@ public class Cart {
 		}
 	}
 	
-	public void getDetail() {
+	void print() {
+		System.out.println("***********************CART***********************");
+		System.out.println("Ordered Items:");
+		for (int j = 0; j < MAX_NUMBERS_ORDERED; j++) {
+			if (itemsOrdered[j] != null) {
+				System.out.print(Integer.toString(j+1) + ". ");
+				itemsOrdered[j].getDetail();
+			}
+			else {
+				break;
+			}
+		}
+		System.out.println("Total cost: " + totalCost());
+		System.out.println("***************************************************");
 		
+	}
+	
+	public void search(String title) {
+		boolean check = false;
+		for (int i = 0; i < MAX_NUMBERS_ORDERED; i++) {
+			if (itemsOrdered[i] == null) {
+				break;
+			}
+			if (itemsOrdered[i].search(title)) {
+				check = true;
+				itemsOrdered[i].getDetail();
+			}
+		}
+		if (! check) {
+			System.out.println("No match is available");
+		}
+	}
+	
+	public void search(int id) {
+		boolean check = false;
+		for (int i = 0; i < MAX_NUMBERS_ORDERED; i++) {
+			if (itemsOrdered[i] == null) {
+				break;
+			}
+			if (itemsOrdered[i].getId() == id) {
+				check = true;
+				itemsOrdered[i].getDetail();
+				break;
+			}
+		}
+		if (! check) {
+			System.out.println("No match is available");
+		}
 	}
 }
