@@ -1,3 +1,0 @@
-Is JAVA a Pass by Value or Pass by Reference programming language ?
-Ans: Java is Pass by Value programming language. 
-Object variables in Java always point to the real object in the memory heap.
