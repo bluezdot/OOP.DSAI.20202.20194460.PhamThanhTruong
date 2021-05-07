@@ -1,0 +1,25 @@
+1. What class should implement the Comparable interface?
++ The class to implement the interface: Media
+
+2. In those classes, how should you implement the compareTo()method be to reflect the ordering that we 
+want?
+public int compareTo(Media m) {
+	if (this.title.compareTo(m.getTitle()) == 0) {
+		return Math.round(this.cost - media.getCost();
+		}
+	return this.title.compareTo(m.getTitle());	
+	}
+3.  Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this 
+Comparable interface approach?
+
+#This is the example of compare 2 media by title first, then by cost
++ If we implement like that, we can still have 2 ordering rules
+by modify the compareTo method, i think using the Comparator class 
+is better and recommended when there're more than 1 comparing rule.
+
+4.  Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this 
+Comparable interface approach?
++ If the DVDs has a different ordering rule: 
+	+ First approach (Comparator): I think we have to create another class for this case to compare the DVDs separately.
+	+Second approach (Comparable): This case is easier to handle: we can override the compareTo method from Media class to apply new compare rule to the DVD class.
+	
