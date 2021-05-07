@@ -24,6 +24,10 @@ public class Cart {
 		}
 	}
 	
+	public ArrayList<Media> getItemsOrdered() {
+		return itemsOrdered;
+	}
+
 	public void removeMedia(Media m) {
 		if (itemsOrdered.contains(m)) {
 			itemsOrdered.remove(m);
@@ -42,19 +46,13 @@ public class Cart {
 		return total;
 	}
 
-	public void display() {
-		for (int i = 0; i < qtyOrdered; i++) {
-			System.out.println(itemsOrdered[i].getTitle());
-		}
-	}
-	
 	public void print() {
 		System.out.println("***********************CART***********************");
 		System.out.println("Ordered Items:");
-		for (int j = 0; j < MAX_NUMBERS_ORDERED; j++) {
-			if (itemsOrdered[j] != null) {
+		for (Media m : itemsOrdered) {
+			if (m != null) {
 				System.out.print(Integer.toString(j+1) + ". ");
-				itemsOrdered[j].getDetail();
+				m.getDetail();
 			}
 			else {
 				break;
@@ -67,13 +65,13 @@ public class Cart {
 	
 	public void search(String title) {
 		boolean check = false;
-		for (int i = 0; i < MAX_NUMBERS_ORDERED; i++) {
-			if (itemsOrdered[i] == null) {
+		for (Media m : itemsOrdered) {
+			if (m == null) {
 				break;
 			}
-			if (itemsOrdered[i].search(title)) {
+			if (m.search(title)) {
 				check = true;
-				itemsOrdered[i].getDetail();
+				m.getDetail();
 			}
 		}
 		if (! check) {
@@ -83,13 +81,13 @@ public class Cart {
 	
 	public void search(int id) {
 		boolean check = false;
-		for (int i = 0; i < MAX_NUMBERS_ORDERED; i++) {
-			if (itemsOrdered[i] == null) {
+		for (Media m : itemsOrdered) {
+			if (m == null) {
 				break;
 			}
-			if (itemsOrdered[i].getId() == id) {
+			if (m.getId() == id) {
 				check = true;
-				itemsOrdered[i].getDetail();
+				m.getDetail();
 				break;
 			}
 		}
