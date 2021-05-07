@@ -16,7 +16,7 @@ public abstract class Media {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
+ 
 	public String getCategory() {
 		return category;
 	}
@@ -57,6 +57,12 @@ public abstract class Media {
 		} else {
 			return false;
 		}
+	}
+	
+	public String toString() {
+		return "ID : " + String.valueOf(id) + "; " +
+                "Title = '" + title + "'; "  +
+                "Category = '" + category + "'; " ;
 	}
 
 }
