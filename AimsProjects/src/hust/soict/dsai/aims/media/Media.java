@@ -8,7 +8,7 @@ public abstract class Media {
 	protected float cost;
 	protected int id;
 	protected LocalDate date;
-	
+
 	public String getTitle() {
 		return title;
 	}
@@ -47,6 +47,16 @@ public abstract class Media {
 
 	public Media() {
 		// TODO Auto-generated constructor stub
+	}
+
+	// override equals method
+	public boolean equals(Object obj) {
+		if (obj instanceof Media) {
+			Media that = (Media) obj;
+			return this.title.toLowerCase().equals(that.title.toLowerCase());
+		} else {
+			return false;
+		}
 	}
 
 }

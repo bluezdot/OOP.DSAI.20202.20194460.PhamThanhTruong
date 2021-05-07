@@ -23,9 +23,23 @@ public class Track implements Playable {
 		super();
 		this.title = title;
 	}
+
 	// Add method play()
 	public void play() {
-		System.out.println("Playing Track: " + this.getTitle());
-		System.out.println("Track length: " + this.getLength());
+		if (this.length == 0) {
+			System.out.println("Cannot play track " + this.getTitle());
+		} else {
+			System.out.println("Playing Track: " + this.getTitle());
+			System.out.println("Track length: " + this.getLength());
+		}
+	}
+
+	public boolean equals(Object obj) {
+		if (obj instanceof Track) {
+			Track that = (Track) obj;
+			return (this.title.toLowerCase().equals(that.title.toLowerCase()) && this.length == that.length);
+		} else {
+			return false;
+		}
 	}
 }
