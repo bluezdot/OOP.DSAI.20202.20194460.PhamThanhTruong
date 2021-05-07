@@ -1,65 +1,43 @@
 package hust.soict.dsai.aims.store;
 
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import java.util.ArrayList;
+
+import hust.soict.dsai.aims.media.Media;
 
 public class Store {
 	public static final int MAX_NUMBERS_IN_STORE = 999999;
-	private DigitalVideoDisc itemsInStore[] = new DigitalVideoDisc[MAX_NUMBERS_IN_STORE];
-	private int qtyStore;
+	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 
-	public boolean checkDVD(DigitalVideoDisc disc) {
-		boolean check = false;
-		for (int i = 0; i < qtyStore; i++) {
-			if (itemsInStore[i].equals(disc)) {
-				check = true;
-				break;
-			}
+	public void addMedia(Media m) {
+		
+		if (itemsInStore.contains(m)) {
+			System.out.println("The media is already in the store");
 		}
-		return check;
-	}
-
-	public void addDVD(DigitalVideoDisc... discsList) {
-		for (DigitalVideoDisc disc : discsList) {
-			if (checkDVD(disc)) {
-				System.out.println("The disc is already in store");
-			} else {
-				if (qtyStore >= MAX_NUMBERS_IN_STORE) {	
-					System.out.println("The store is almost full");
-					break;
-				} else {
-					itemsInStore[qtyStore] = disc;
-					qtyStore += 1;
-					System.out.println("The disc has been added to store");
-				}
-			}
-		}
-	}
-
-	public void removeDVD(DigitalVideoDisc disc) {
-		if (qtyStore > 0) {
-			int indexOfDisc = 0;
-			boolean discInStore = false;
-			while (indexOfDisc < qtyStore) {
-				if (itemsInStore[indexOfDisc] == disc) {
-					discInStore = true;
-					break;
-				} else {
-					indexOfDisc += 1;
-				}
-			}
-			if (discInStore) {
-				for (int i = indexOfDisc; i < qtyStore - 1; ++i) {
-					itemsInStore[i] = itemsInStore[i + 1];
-				}
-				itemsInStore[qtyStore - 1] = null;
-				qtyStore -= 1;
-				System.out.println("The disc has been removed from store");
-			} else {
-				System.out.println("The disc is not in store");
-			}
-		} else {
-			System.out.println("The store is empty");
+		else {
+			itemsInStore.add(m);
+			System.out.println("The media has been added to the store");
 		}
 	}
 	
+	public void addMedia(Media ... args ) {
+		for (Media m: args) {
+			if (itemsInStore.contains(m)) {
+				System.out.println("The media is already in the store");
+			}
+			else {
+				itemsInStore.add(m);
+				System.out.println("The media has been added to the store");
+			}
+		}
+	}
+	
+	public void removeMedia(Media m) {
+		if (itemsInStore.contains(m)) {
+			itemsInStore.remove(m);
+			System.out.println("The media has been removed");
+		}
+		else {
+			System.out.println("The media is not in the store");
+		}
+	}	
 }
