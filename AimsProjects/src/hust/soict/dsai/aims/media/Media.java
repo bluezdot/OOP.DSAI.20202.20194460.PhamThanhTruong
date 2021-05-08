@@ -12,6 +12,11 @@ public abstract class Media {
 	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
 	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
+	
+	public void play()
+	{
+		
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -62,10 +67,38 @@ public abstract class Media {
 		}
 	}
 	
+	
+	// Search
+	public boolean search(String title) {
+		String t1 = this.title.toLowerCase();
+		String t2 = title.toLowerCase();
+		if (t1.contains(t2)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public boolean search(int id) {
+		if (id == this.id) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	
+	
+	@Override
 	public String toString() {
 		return "ID : " + String.valueOf(id) + "; " +
                 "Title = '" + title + "'; "  +
                 "Category = '" + category + "'; " ;
 	}
-	
+//	public void print()
+//	{
+//		System.out.println("ID:"+String.valueOf(id)+";"+ "Title = "+ title + " ; ";);
+//	}
+//	
 }

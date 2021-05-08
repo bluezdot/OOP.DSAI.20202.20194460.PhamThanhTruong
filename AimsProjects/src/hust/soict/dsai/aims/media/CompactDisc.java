@@ -26,6 +26,12 @@ public class CompactDisc extends Disc implements Playable {
 		super(title);
 		this.artist = artist;
 	}
+	
+	public CompactDisc(String title, String category, float cost, String artist) {
+		super(title, category, cost);
+		this.artist = artist;
+		
+	}
 
 	// Create add and remove method
 
@@ -60,11 +66,7 @@ public class CompactDisc extends Disc implements Playable {
 	}
 	
 	public String toString() {
-		return "ID : " + String.valueOf(id) + "; " +
-                "Title = '" + title + "'; "  +
-                "Category = '" + category + "'; " +
-                "Cost = " + cost + "; " +
-                "Artist = " + artist;
+		return "CompactDisc: ID=" + String.valueOf(id) + ", Title=" + title + ", Category=" + category + ", Cost=" + cost + ", Artist=" + artist;
 	}
 
 }

@@ -9,13 +9,13 @@ public class Book extends Media {
 		public Book() {
 		}
 		
-		public Book(int id, String title, String category, float cost, String f) {
+		public Book(int id, String title, String category, float cost, String author) {
 			super();
-			this.id = id;
-			this.title = title;
-			this.category = category;
-			this.cost = cost;
-			this.authors.add(f);
+			super.id = id;
+			super.title = title;
+			super.category = category;
+			super.cost = cost;
+			this.authors.add(author);
 		}
 		
 		public void addAuthor(String authorName) {
@@ -28,10 +28,7 @@ public class Book extends Media {
 		}
 		
 		public String toString() {
-			return "ID : " + String.valueOf(id) + "; " +
-	                "Title = '" + title + "'; "  +
-	                "Category = '" + category + "'; " +
-	                "Cost = " + cost + "; " +
-	                "Authors = " + authors;
+			return "Book: ID=" + super.id + ", Title=" + title + ", Category=" + category + ", Cost=" + cost + ", Author=" + authors;
+
 		}
 }

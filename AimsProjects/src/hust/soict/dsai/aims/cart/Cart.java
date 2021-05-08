@@ -8,24 +8,21 @@ public class Cart {
 
 	public static final int MAX_NUMBERS_ORDERED = 20;
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
-	
+
 	public void addMedia(Media m) {
 		if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
 			System.out.println("The cart is full !");
 		}
 		else {
-			if (itemsOrdered.contains(m)) {
-				System.out.println("The media is already in the cart");
-			}
-			else {
+			//if (itemsOrdered.contains(m)) {
+			//	System.out.println("The media is already in the cart");
+			//}
+		//	else
+			{
 				itemsOrdered.add(m);
 				System.out.println("The media has added");
 			}
 		}
-	}
-	
-	public ArrayList<Media> getItemsOrdered() {
-		return itemsOrdered;
 	}
 
 	public void removeMedia(Media m) {
@@ -36,6 +33,10 @@ public class Cart {
 		else {
 			System.out.println("The media is not in the cart");
 		}
+	}
+	
+	public ArrayList<Media> getItemsOrdered() {
+		return itemsOrdered;
 	}
 	
 	public float totalCost() {
@@ -50,49 +51,47 @@ public class Cart {
 		System.out.println("***********************CART***********************");
 		System.out.println("Ordered Items:");
 		for (Media m : itemsOrdered) {
-			if (m != null) {
-				System.out.print(Integer.toString(j+1) + ". ");
-				m.getDetail();
+				System.out.println(m.toString());
 			}
-			else {
-				break;
-			}
-		}
+		
 		System.out.println("Total cost: " + totalCost());
 		System.out.println("***************************************************");
 		
 	}
 	
-	public void search(String title) {
-		boolean check = false;
-		for (Media m : itemsOrdered) {
-			if (m == null) {
-				break;
-			}
-			if (m.search(title)) {
-				check = true;
-				m.getDetail();
+	public Media searchMedia(int x) {
+		boolean found = false;
+		Media result = null;
+		for (Media media: itemsOrdered) {
+			if (media.search(x)) {
+				found = true;
+				result = media;
 			}
 		}
-		if (! check) {
-			System.out.println("No match is available");
+		if (found == false) {
+			System.out.println("This DVD is not in cart");
+			return result;
+		}
+		else {
+			System.out.println(result.toString());
+			return result;
 		}
 	}
 	
-	public void search(int id) {
-		boolean check = false;
-		for (Media m : itemsOrdered) {
-			if (m == null) {
-				break;
-			}
-			if (m.getId() == id) {
-				check = true;
-				m.getDetail();
-				break;
+	public ArrayList<Media> searchMedia(String name) {
+		boolean found = false;
+		ArrayList<Media> result = new ArrayList<Media>();
+		for (Media media: itemsOrdered) {
+			if (media.search(name)) {
+				result.add(media);
+				System.out.println(media.toString());
+				found = true;
 			}
 		}
-		if (! check) {
-			System.out.println("No match is available");
+		if (found == false) {
+			System.out.println("This DVD is not in cart");
 		}
+		return result;
 	}
+	
 }
