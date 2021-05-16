@@ -1,10 +1,10 @@
 package application;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
+import javafx.fxml.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx. stage.Stage;
  
 public class MyApplication  extends Application {
     
@@ -14,7 +14,7 @@ public class MyApplication  extends Application {
         try {
             // Read file fxml and draw interface.
             Parent root = FXMLLoader.load(getClass()
-                    .getResource("/org/o7planning/javafx/MyScene.fxml"));
+                    .getResource("/application/MyScene.fxml"));
  
             primaryStage.setTitle("My Application");
             primaryStage.setScene(new Scene(root));
