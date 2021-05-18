@@ -1,6 +1,7 @@
 package hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Book extends Media {
 		private int id;
@@ -17,7 +18,7 @@ public class Book extends Media {
 			super.cost = cost;
 			this.authors.add(author);
 		}
-		
+
 		public void addAuthor(String authorName) {
 			if (this.authors.contains(authorName) == false) this.authors.add(authorName);
 			else System.out.println("author is already in list");
