@@ -15,13 +15,12 @@
          <BorderPane.margin>
             <Insets right="8.0" />
          </BorderPane.margin>
+         <children>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearButtonPressed" text="Clear" />
+         </children>
       </VBox>
    </left>
    <center>
-      <Pane fx:id="drawingAreaPane" onMouseDragged="#drawingAreaMouseDragged" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-         <children>
-            <Button layoutX="14.0" layoutY="300.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearButtonPressed" text="Clear" />
-         </children>
-      </Pane>
+      <Pane fx:id="drawingAreaPane" onMouseDragged="#drawingAreaMouseDragged" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
