@@ -80,7 +80,7 @@
             <HBox prefHeight="79.0" prefWidth="506.0">
                <children>
                   <Button fx:id="btnPlay" mnemonicParsing="false" text="Play" />
-                  <Button fx:id="btnRemove" mnemonicParsing="false" text="Remove" />
+                  <Button fx:id="btnRemove" mnemonicParsing="false" onAction="#btnRemovePressed" text="Remove" />
                </children>
                <VBox.margin>
                   <Insets left="710.0" top="10.0" />
