@@ -16,6 +16,20 @@
             <Insets right="8.0" />
          </BorderPane.margin>
          <children>
+            <TitledPane prefHeight="109.0" prefWidth="78.0" text="Tools">
+               <content>
+                  <Pane prefHeight="89.0" prefWidth="76.0">
+                     <children>
+                        <RadioButton fx:id="rbPen" layoutX="15.0" layoutY="20.0" mnemonicParsing="false" text="Pen">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tgTools" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbEraser" layoutX="15.0" layoutY="45.0" mnemonicParsing="false" text="Eraser" toggleGroup="$tgTools" />
+                     </children>
+                  </Pane>
+               </content>
+            </TitledPane>
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearButtonPressed" text="Clear" />
          </children>
       </VBox>
