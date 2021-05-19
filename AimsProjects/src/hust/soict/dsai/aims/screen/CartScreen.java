@@ -24,6 +24,7 @@ public class CartScreen extends JFrame {
 		
 		this.setTitle("Cart");
 		this.setVisible(true);
+		this.setSize(1024, 768);
 		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {

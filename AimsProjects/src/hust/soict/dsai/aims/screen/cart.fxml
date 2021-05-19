@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <VBox prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -76,15 +77,15 @@
                   <TableColumn fx:id="colMediaCost" maxWidth="825.0" minWidth="-Infinity" prefWidth="254.0" text="Cost" />
               </columns>
             </TableView>
-            <ToolBar prefHeight="35.0" prefWidth="20.0">
-              <items>
-                  <Button mnemonicParsing="false" text="Play" />
-                  <Button mnemonicParsing="false" text="Remove" />
-              </items>
+            <HBox prefHeight="79.0" prefWidth="506.0">
+               <children>
+                  <Button fx:id="btnPlay" mnemonicParsing="false" text="Play" />
+                  <Button fx:id="btnRemove" mnemonicParsing="false" text="Remove" />
+               </children>
                <VBox.margin>
-                  <Insets left="710.0" right="15.0" />
+                  <Insets left="710.0" top="10.0" />
                </VBox.margin>
-            </ToolBar>
+            </HBox>
          </children>
       </VBox>
    </center>
