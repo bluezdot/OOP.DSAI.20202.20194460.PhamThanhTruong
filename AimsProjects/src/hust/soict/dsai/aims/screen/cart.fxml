@@ -55,8 +55,8 @@
                      <padding>
                         <Insets right="5.0" />
                      </padding></Label>
-                  <TextField />
-                  <RadioButton mnemonicParsing="false" selected="true" text="By ID">
+                  <TextField fx:id="tfFilter" />
+                  <RadioButton fx:id="radioBtnFilterID" mnemonicParsing="false" selected="true" text="By ID">
                      <toggleGroup>
                         <ToggleGroup fx:id="filterCatagory" />
                      </toggleGroup>
@@ -64,7 +64,7 @@
                         <Insets left="5.0" />
                      </padding>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="By Title" toggleGroup="$filterCatagory">
+                  <RadioButton fx:id="radioBtnFilterTitle" mnemonicParsing="false" text="By Title" toggleGroup="$filterCatagory">
                      <padding>
                         <Insets left="5.0" />
                      </padding></RadioButton>
