@@ -20,18 +20,14 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.media.Book;
-import hust.soict.dsai.aims.media.CompactDisc;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.store.Store;
-import hust.soict.dsai.aims.screen.MediaStore;
 
 public class StoreScreen extends JFrame {
 	private Store store;
-	private Cart cart;
+	Cart cart = new Cart();
 	
-	public StoreScreen(Store store, Cart cart) {
+	public StoreScreen(Cart cart, Store store) {
 		this.store = store;
 		this.cart = cart;
 		
@@ -40,9 +36,6 @@ public class StoreScreen extends JFrame {
 		
 		cp.add(createNorth(), BorderLayout.NORTH);
 		cp.add(createCenter(), BorderLayout.CENTER);
-		
-		// Adding close application
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		setVisible(true);
 		setTitle("Store");
@@ -110,29 +103,4 @@ public class StoreScreen extends JFrame {
 
 		return center;
 	}	
-
-	public static void main(String[] args) {
-		Store store = new Store();
-		Cart cart = new Cart();
-		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion","Animation","Roger Allers",87,19.95f);
-		store.addMedia(dvd1);
-		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars","Science Fiction","George Lucas",87,24.95f);
-		store.addMedia(dvd2);
-		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin","Animation",18.99f);
-		store.addMedia(dvd3);
-		Book b = new Book(1, "Harry Porter", "Action" ,35.5f, "La");
-		store.addMedia(b);
-		CompactDisc cd = new CompactDisc("Lalisa", "Comedy", 123, "Truong");
-		store.addMedia(cd);
-		DigitalVideoDisc dvd4 = new DigitalVideoDisc("Girl From Nowhere","Drama",18.99f);
-		store.addMedia(dvd4);
-		DigitalVideoDisc dvd5 = new DigitalVideoDisc("Old Dad","Drama",18.99f);
-		store.addMedia(dvd5);
-		DigitalVideoDisc dvd6 = new DigitalVideoDisc("Black Widow","Science Fiction",18.99f);
-		store.addMedia(dvd6);
-		DigitalVideoDisc dvd7 = new DigitalVideoDisc("Tom & Jerry","Animation",18.99f);
-		store.addMedia(dvd7);
-		new StoreScreen(store, cart);
-
-	}
 }

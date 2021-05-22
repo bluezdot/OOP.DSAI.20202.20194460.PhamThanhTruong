@@ -12,47 +12,6 @@ public class DigitalVideoDisc extends Disc implements Playable {
 	}
 
 	
-	
-//	public String[] getDetail() {
-//		String stringTitle = "Title: " + "null";
-//		String stringCategory = "Category: " + "null";
-//		String stringDirector = "Director: " + "null";
-//		String stringLength = "Length: " + "null";
-//		String stringCost = "Cost: " + "null";
-//
-//		if (title != null) {
-//			stringTitle = "Title: " + String.valueOf(title);
-//		}
-//		if (category != null) {
-//			stringCategory = "Category: " + String.valueOf(category);
-//		}
-//		if (director != null) {
-//			stringDirector = "Director: " + String.valueOf(director);
-//		}
-//		if (length != 0) {
-//			stringLength = "Length: " + String.valueOf(length);
-//		}
-//		if (cost != 0) {
-//			stringCost = "Cost: " + String.valueOf(cost) + "$";
-//		}
-//		
-//		String[] detail = {stringTitle, stringCategory, stringDirector, stringLength, stringCost};
-//		return detail;
-//	}
-//	public String toString() {
-//		StringBuilder info = new StringBuilder();
-//		String[] detail = this.getDetail();
-//		for (String feature: detail) {
-//			if (info.toString().equals("")) {
-//				info.append(feature);
-//			}
-//			else {
-//				info.append("\n   " + feature);
-//			}
-//		}
-//		return info.toString();
-//	}
-	
 	public DigitalVideoDisc(String title) {
 		super(title);
 		nbDigitalVideoDiscs += 1;

@@ -1,7 +1,6 @@
 package hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Book extends Media {
 		private int id;
@@ -10,6 +9,12 @@ public class Book extends Media {
 		public Book() {
 		}
 		
+		public Book(String title, String category, float cost) {
+			super();
+			super.title = title;
+			super.category = category;
+			super.cost = cost;
+		}
 		public Book(int id, String title, String category, float cost, String author) {
 			super();
 			super.id = id;

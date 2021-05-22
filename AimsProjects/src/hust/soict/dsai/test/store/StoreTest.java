@@ -12,18 +12,18 @@ public class StoreTest {
 		Cart cart = new Cart();
 		Store store = new Store();
 
-		DigitalVideoDisc dvd1 = new DigitalVideoDisc("Title1", "Type1", "Name1", 80, 19.95f);
+		DigitalVideoDisc dvd1 = new DigitalVideoDisc("Title1", "Type1", "Name1", 80, 50);
 		store.addMedia(dvd1);
 		
-		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Title2", "Type2", "Name2", 80, 19.95f);
-		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Title3", "Type3", "Name3", 80);
+		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Title2", "Type2", "Name2", 80, 30);
+		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Title3", "Type3", "Name3", 80, 20);
 		store.addMedia(dvd2, dvd3);
 		
 		store.removeMedia(dvd3);
 		cart.addMedia(dvd3);
 		cart.addMedia(dvd2);
 		cart.addMedia(dvd1);
-		new CartScreen(cart);
+		new CartScreen(cart, store);
 	}
 
 }

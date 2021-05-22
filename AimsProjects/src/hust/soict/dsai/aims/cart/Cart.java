@@ -96,4 +96,8 @@ public class Cart {
 		return result;
 	}
 	
+	public void clearCart() {
+		this.itemsOrdered.clear();
+	}
+	
 }
