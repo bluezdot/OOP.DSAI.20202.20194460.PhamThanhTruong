@@ -218,7 +218,10 @@ package hust.soict.dsai.aims;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.naming.LimitExceededException;
+
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.Book;
 import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
@@ -263,7 +266,7 @@ public class Aims {
 		System.out.println("Please choose a number: 0-1-2-3-4-5");
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws LimitExceededException, PlayerException {
 
 		// Initialization
 		Book book1 = new Book(1, "Title3", "Cat1", 100, "Kaka");

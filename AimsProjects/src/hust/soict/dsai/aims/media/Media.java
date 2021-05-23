@@ -60,14 +60,19 @@ public abstract class Media {
 	}
 
 	// override equals method
-	public boolean equals(Object obj) {
-		if (obj instanceof Media) {
-			Media that = (Media) obj;
-			return this.title.toLowerCase().equals(that.title.toLowerCase());
-		} else {
-			return false;
-		}
-	}
+
+	@Override
+    public boolean equals(Object obj){
+        if(obj == this){
+            return true;
+        }
+        if (!(obj instanceof Media)){
+            return false;
+        }
+        Media media;
+        media = (Media) obj;
+        return this.title.equals(media.getTitle());
+    }
 	
 	
 	// Search
@@ -111,9 +116,4 @@ public abstract class Media {
                 "Title = '" + title + "'; "  +
                 "Category = '" + category + "'; " ;
 	}
-//	public void print()
-//	{
-//		System.out.println("ID:"+String.valueOf(id)+";"+ "Title = "+ title + " ; ";);
-//	}
-//	
 }

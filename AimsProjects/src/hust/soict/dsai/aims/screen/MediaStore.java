@@ -65,6 +65,8 @@ public class MediaStore extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 try {
                     cart.addMedia(media);
+                    Frame frame = new Frame();
+                    JOptionPane.showMessageDialog(frame, "The media has already added", "STATUS", JOptionPane.DEFAULT_OPTION);
                 } catch (LimitExceededException limitExceededException) {
                     limitExceededException.printStackTrace();
                 }
