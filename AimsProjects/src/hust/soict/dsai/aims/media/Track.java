@@ -1,5 +1,9 @@
 package hust.soict.dsai.aims.media;
 
+import java.awt.Frame;
+
+import javax.swing.JOptionPane;
+
 import hust.soict.dsai.aims.exception.PlayerException;
 
 public class Track implements Playable {
@@ -16,21 +20,20 @@ public class Track implements Playable {
 
 	// Create Constructors
 	public Track(String title, int length) {
-		super();
 		this.title = title;
 		this.length = length;
 	}
 
 	public Track(String title) {
-		super();
 		this.title = title;
 	}
 
 	
 	@Override
     public void play() throws PlayerException {
-        if (this.getLength() > 0){
-            System.out.println(this.getTitle() +" is playing...");
+        if (this.getLength() >= 0){
+        	Frame frame = new Frame();
+	        JOptionPane.showMessageDialog(frame, "Playing .... \n" + "Length: " + this.getLength(), this.getTitle(), JOptionPane.DEFAULT_OPTION);
         }else {
             throw new PlayerException("ERROR: Track length is non-positive!!!");
         }

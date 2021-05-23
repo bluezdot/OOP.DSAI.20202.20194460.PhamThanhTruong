@@ -12,9 +12,14 @@ public class CompactDisc extends Disc implements Playable {
 		return artist;
 	}
 
-	public int getLength() {
-		return this.length;
-	}
+    @Override
+    public int getLength() {
+        int totalLength = 0;
+        for (Track track : tracks) {
+            totalLength += track.getLength();
+        }
+        return totalLength;
+    }
 
 	// Create constructors
 
@@ -62,7 +67,7 @@ public class CompactDisc extends Disc implements Playable {
 	// Add method play()
 	@Override
 	public void play() throws PlayerException {
-		if (this.getLength() > 0) {
+		if (this.getLength() >= 0) {
 			java.util.Iterator iter = tracks.iterator();
 			Track nextTrack;
 			while ((iter.hasNext())) {

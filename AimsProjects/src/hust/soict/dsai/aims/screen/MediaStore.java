@@ -3,6 +3,7 @@ package hust.soict.dsai.aims.screen;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,11 +12,12 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Playable;
 
@@ -78,28 +80,16 @@ public class MediaStore extends JPanel{
             btnPlay.addActionListener(new ActionListener() {
             	@Override
             	public void actionPerformed(ActionEvent e) {
-            		JLabel playMessage = new JLabel("Playing...");
-            				
-            		try {
-                		((Playable) media).play();
-            		} catch (Exception ex) {
-            			playMessage = new JLabel(ex.getMessage());
-            		}
+                    try{
+                        ((Playable) media).play();
+                    } catch (PlayerException playerException) {
+                        new ErrorDialogStore(playerException);
+                    }
 
-        			// Show dialog
-            		JDialog dlPlay = new JDialog();
-            		dlPlay.setBounds(ABORT, ABORT, WIDTH, HEIGHT);
-            		dlPlay.setTitle(media.getTitle());
-	
-            		dlPlay.add(playMessage);
-            		dlPlay.pack();
-            		
-            		dlPlay.setVisible(true);
-            		dlPlay.setSize(400,200);
-
-            	}
+                }
             });
 		}
+		
 		
 		this.add(Box.createVerticalGlue());
 		this.add(title);
@@ -109,5 +99,13 @@ public class MediaStore extends JPanel{
 		
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		
+	}
+	
+	public class ErrorDialogStore {
+	    public ErrorDialogStore(PlayerException e){
+	        Frame frame = new Frame();
+	        JOptionPane.showMessageDialog(frame,"Error: Media Length is non-positive!!!", "Illegal for Media Length", JOptionPane.ERROR_MESSAGE );
+
+	    }
 	}
 }

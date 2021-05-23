@@ -1,6 +1,11 @@
 package hust.soict.dsai.aims.media;
 
+import java.awt.Frame;
+
+import javax.swing.JOptionPane;
+
 import hust.soict.dsai.aims.exception.PlayerException;
+
 
 public class DigitalVideoDisc extends Disc implements Playable {
 	private String director;
@@ -42,9 +47,7 @@ public class DigitalVideoDisc extends Disc implements Playable {
 		return director;
 	}
 
-	public int getLength() {
-		return length;
-	}
+	
 
 	// The getDetail() method does not have return type, it will print out the String I construct whenever the method is called.
 	
@@ -69,15 +72,13 @@ public class DigitalVideoDisc extends Disc implements Playable {
 	// Add method play()
 	@Override
     public void play() throws PlayerException {
-        if (this.getLength() > 0){
- 
-        }else {
+        if (this.getLength() >= 0){
+        	Frame frame = new Frame();
+	        JOptionPane.showMessageDialog(frame, "Length: " + this.getLength(), this.getTitle(), JOptionPane.DEFAULT_OPTION);
+        } else {
             throw new PlayerException("ERROR: DVD length is non-positive!!!");
         }
-
     }
-
-
 
 	@Override
 	public String toString() {
