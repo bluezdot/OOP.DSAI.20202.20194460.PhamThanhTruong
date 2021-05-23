@@ -55,7 +55,7 @@ public class CartScreenController {
 	
 	@FXML
 	private TextField tfFilter;
-	
+
 	@FXML
 	private RadioButton radioBtnFilterId;
 	
@@ -67,8 +67,8 @@ public class CartScreenController {
 
     @FXML
     private Label lbTotalCost;
-    
-    @FXML
+
+	@FXML
     private MenuItem btnAddDVD;
     
     @FXML
@@ -95,7 +95,7 @@ public class CartScreenController {
 		//get item in listMedia
 		ObservableList<Media> listMedia = this.cart.getItemsOrdered();
 		tblMedia.setItems(listMedia);
-		lbTotalCost.setText("" + cart.totalCost() + "$");
+		setCost();
 		
 		btnPlay.setVisible(false);
 		btnRemove.setVisible(false);
@@ -135,7 +135,7 @@ public class CartScreenController {
 	void btnRemovePressed(ActionEvent event) {
 		Media media = tblMedia.getSelectionModel().getSelectedItem();
 		cart.removeMedia(media);
-		lbTotalCost.setText("" + cart.totalCost() + "$");
+		setCost();
 	}
 	
 	// Play button
@@ -207,6 +207,10 @@ public class CartScreenController {
 			order.add(tfDisplay, BorderLayout.CENTER);
 			order.setVisible(true);
 		}
+	}
+	
+	public void setCost() {
+		lbTotalCost.setText("" + cart.totalCost() + "$");
 	}
 	
 	// Option menu

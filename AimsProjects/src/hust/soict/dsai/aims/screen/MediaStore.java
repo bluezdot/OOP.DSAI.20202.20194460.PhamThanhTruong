@@ -6,14 +6,12 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.naming.LimitExceededException;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import hust.soict.dsai.aims.cart.Cart;
@@ -76,6 +74,7 @@ public class MediaStore extends JPanel{
 
 	    		// Add to cart
 	    		cart.addMedia(media);
+	    		
         	}
         });
         container.add(btnAdd);
