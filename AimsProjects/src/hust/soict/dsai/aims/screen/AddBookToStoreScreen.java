@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.Book;
 import hust.soict.dsai.aims.store.Store;
 
@@ -23,6 +24,7 @@ public class AddBookToStoreScreen extends JFrame{
 	private String titleInField;
 	private String categoryInField;
 	private Store store;
+	private Cart cart;
 	private JTextField tfAuthors;
 	private String authorsInField;
 	
@@ -106,7 +108,7 @@ public class AddBookToStoreScreen extends JFrame{
 	private class AddListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent evt) {
-			Book book = new Book(titleInField, categoryInField, costInField);
+			Book book = new Book(tfTitle.getText(), tfCategory.getText(), Float.parseFloat(tfCost.getText()));
 			if (authorsInField != null) {
 	 			String[] authors = authorsInField.split(", ");
 				for (String author: authors) {
@@ -115,7 +117,7 @@ public class AddBookToStoreScreen extends JFrame{
 			}
 			store.addMedia(book);
 			dispose();
-			new StoreScreen(store);
+			new StoreScreen(cart, store);
 		}
 	}
 	

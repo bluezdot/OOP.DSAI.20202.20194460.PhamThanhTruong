@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.store.Store;
 
@@ -26,6 +27,7 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
 	private int lenghInField;
 	private String directorInField;
 	private Store store;
+	private Cart cart;
 
 	public AddDigitalVideoDiscToStoreScreen(Store store) {
 		// TODO Auto-generated constructor stub
@@ -71,6 +73,7 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
 		Add.addActionListener(new AddListener());
 
 		this.store = store;
+		this.cart = cart;
 
 	}
 
@@ -119,10 +122,18 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
 	private class AddListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent evt) {
-			store.addMedia(
-					new DigitalVideoDisc(titleInField, categoryInField, directorInField, lenghInField, costInField));
-			dispose();
-			new StoreScreen(store);
+			try {
+				store.addMedia(new DigitalVideoDisc(tfTitle.getText(), tfCategory.getText(), tfDirector.getText(),
+						Integer.parseInt(tfLength.getText()), Float.parseFloat(tfCost.getText())));
+				dispose();
+				new StoreScreen(cart, store);
+			} catch (NumberFormatException e) {
+				store.addMedia(new DigitalVideoDisc(tfTitle.getText(), tfCategory.getText(), tfDirector.getText(),
+						0, Float.parseFloat(tfCost.getText())));
+				dispose();
+				new StoreScreen(cart, store);
+			}
+			
 		}
 	}
 

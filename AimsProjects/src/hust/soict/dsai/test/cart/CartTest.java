@@ -43,6 +43,8 @@ public class CartTest {
 		store.addMedia(dvd6);
 		DigitalVideoDisc dvd7 = new DigitalVideoDisc("Tom & Jerry","Animation",18.99f);
 		store.addMedia(dvd7);
+		DigitalVideoDisc dvd8 = new DigitalVideoDisc("Tom & Jerry 2","Animation",18.99f);
+		store.addMedia(dvd8);
 		
 		new CartScreen(cart, store);
 	}

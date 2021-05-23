@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.media.Track;
 import hust.soict.dsai.aims.store.Store;
@@ -24,6 +25,7 @@ public class AddCompactDiscToStoreScreen extends JFrame {
 	private String titleInField;
 	private String categoryInField;
 	private Store store;
+	private Cart cart;
 	private JTextField tfTracks;
 	private String inputTracks;
 	private String artistInField;
@@ -72,6 +74,7 @@ public class AddCompactDiscToStoreScreen extends JFrame {
 		Add.addActionListener(new AddListener());
 
 		this.store = store;
+		
 	}
 
 	private class TFTitleListener implements ActionListener {
@@ -119,16 +122,21 @@ public class AddCompactDiscToStoreScreen extends JFrame {
 
 	private class AddListener implements ActionListener {
 		@Override
-		public void actionPerformed(ActionEvent evt) {
-			CompactDisc cd = new CompactDisc(titleInField, categoryInField, costInField, artistInField);
-			String[] Tracks = inputTracks.split(", ");
-			for (String track : Tracks) {
-				String[] info = track.split(" - ");
-				cd.addTrack(new Track(info[0], Integer.parseInt(info[1])));
+		public void actionPerformed(ActionEvent e) {
+			CompactDisc compactDist = new CompactDisc(tfTitle.getText(), tfCategory.getText(),
+					Float.parseFloat(tfCost.getText()), tfArtist.getText());
+			try {
+				String[] Trackss = tfTracks.getText().split(", ");
+				for (String trackk : Trackss) {
+					String[] info = trackk.split(" - ");
+					compactDist.addTrack(new Track(info[0], Integer.parseInt(info[1])));
+				}
+			} catch (ArrayIndexOutOfBoundsException arrayE) {
+			} finally {
+				store.addMedia(compactDist);
+				dispose();
+				new StoreScreen(cart, store);
 			}
-			store.addMedia(cd);
-			dispose();
-			new StoreScreen(store);
 		}
 	}
 
