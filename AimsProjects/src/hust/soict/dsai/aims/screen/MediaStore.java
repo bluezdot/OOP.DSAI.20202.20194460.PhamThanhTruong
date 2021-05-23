@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.naming.LimitExceededException;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -57,25 +58,17 @@ public class MediaStore extends JPanel{
 		container.setLayout(new FlowLayout(FlowLayout.CENTER));
 
 		JButton btnAdd = new JButton("Add to cart");
-        btnAdd.addActionListener(new ActionListener() {
-        	@Override
-        	public void actionPerformed(ActionEvent e) {
-        		
-    			// Show dialog
-				JDialog dlAdd = new JDialog();
-	    		dlAdd.setBounds(ABORT, ABORT, WIDTH, HEIGHT);;
-	    		dlAdd.setTitle("Status");
-	    		
-	    		JLabel lAdd = new JLabel(" Media has already added !");
-	    		
-	    		dlAdd.add(lAdd);
-	    		dlAdd.setSize(200, 150);
-	    		dlAdd.setVisible(true);
+		btnAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    cart.addMedia(media);
+                } catch (LimitExceededException limitExceededException) {
+                    limitExceededException.printStackTrace();
+                }
 
-	    		// Add to cart
-	    		cart.addMedia(media);
-	    		
-        	}
+
+            }
         });
         container.add(btnAdd);
 		
