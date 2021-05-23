@@ -3,6 +3,8 @@ package hust.soict.dsai.aims.media;
 import java.time.LocalDate;
 import java.util.Comparator;
 
+import hust.soict.dsai.aims.exception.PlayerException;
+
 public abstract class Media {
 	protected String title;
 	protected String category;
@@ -13,7 +15,7 @@ public abstract class Media {
 	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
 	
-	public void play()
+	public void play() throws PlayerException
 	{
 		
 	}

@@ -2,6 +2,8 @@ package hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
 
+import hust.soict.dsai.aims.exception.PlayerException;
+
 public class CompactDisc extends Disc implements Playable {
 	private String artist;
 	private ArrayList<Track> tracks = new ArrayList<Track>();
@@ -26,11 +28,11 @@ public class CompactDisc extends Disc implements Playable {
 		super(title);
 		this.artist = artist;
 	}
-	
+
 	public CompactDisc(String title, String category, float cost, String artist) {
 		super(title, category, cost);
 		this.artist = artist;
-		
+
 	}
 
 	// Create add and remove method
@@ -58,15 +60,28 @@ public class CompactDisc extends Disc implements Playable {
 	}
 
 	// Add method play()
-	public void play() {
-		System.out.println("CD's artist: " + this.getArtist());
-		for (Track t: tracks) {
-			t.play();
+	@Override
+	public void play() throws PlayerException {
+		if (this.getLength() > 0) {
+			java.util.Iterator iter = tracks.iterator();
+			Track nextTrack;
+			while ((iter.hasNext())) {
+				nextTrack = (Track) iter.next();
+				try {
+					nextTrack.play();
+				} catch (PlayerException e) {
+					throw e;
+				}
+			}
+		} else {
+			throw new PlayerException("ERROR: CD length is non-positive!!!");
 		}
+
 	}
-	
+
 	public String toString() {
-		return "CompactDisc: ID=" + String.valueOf(id) + ", Title=" + title + ", Category=" + category + ", Cost=" + cost + ", Artist=" + artist;
+		return "CompactDisc: ID=" + String.valueOf(id) + ", Title=" + title + ", Category=" + category + ", Cost="
+				+ cost + ", Artist=" + artist;
 	}
 
 }
